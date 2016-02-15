@@ -1,2 +1,2 @@
-Python3.4 and numpy, pandas, networkx, more_itertools.
+Python3.5 and numpy, pandas, networkx, more_itertools.
 ========

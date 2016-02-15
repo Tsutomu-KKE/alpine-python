@@ -1,4 +1,4 @@
-Python3.4 and scientific packages on alpine.
+Python3.5 and scientific packages on alpine.
 ========
 
 - Japanese font installed. (Use plt.rcParams['font.family'] = 'IPAexGothic')

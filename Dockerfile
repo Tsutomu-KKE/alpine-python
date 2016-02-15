@@ -19,7 +19,7 @@ RUN apk add --update --no-cache musl python3-dev freetype-dev make g++ gfortran 
     pip install scipy matplotlib jupyter networkx pandas pyyaml more_itertools \
         scikit-learn blist bokeh statsmodels seaborn dask sympy && \
     unzip -q ipaexg00301.zip && \
-    mv ipaexg00301/ipaexg.ttf /usr/lib/python3.4/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
+    mv ipaexg00301/ipaexg.ttf /usr/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* /tmp/* /root/src/
 CMD ["sh"]
