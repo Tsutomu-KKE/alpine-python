@@ -16,6 +16,7 @@ RUN apk add --update --no-cache musl python3-dev freetype-dev make g++ gfortran 
     wget -q --no-check-certificate "https://bootstrap.pypa.io/get-pip.py" -O /dev/stdout | python3 && \
     pip install numpy==1.9.3 && \
     pip install networkx pandas pyyaml more_itertools && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* /tmp/* /root/src/
 CMD ["sh"]
