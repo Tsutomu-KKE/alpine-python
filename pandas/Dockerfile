@@ -1,7 +1,7 @@
 FROM alpine:3.3
 
-ENV BLAS /usr/local/lib/libfblas.a \
-    LAPACK /usr/local/lib/liblapack.a
+ENV BLAS=/usr/local/lib/libfblas.a \
+    LAPACK=/usr/local/lib/liblapack.a
 RUN apk add --update --no-cache musl python3-dev freetype-dev make g++ gfortran && \
     apk add --no-cache --virtual=build-dependencies wget && \
     cd /tmp && wget -q --no-check-certificate \
