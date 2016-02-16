@@ -1,26 +1,27 @@
-FROM alpine:3.3
+FROM frolvlad/alpine-glibc
 
-ENV BLAS=/usr/local/lib/libfblas.a \
-    LAPACK=/usr/local/lib/liblapack.a
-RUN apk add --update --no-cache musl python3-dev freetype-dev make g++ gfortran && \
-    apk add --no-cache --virtual=build-dependencies wget && \
-    cd /tmp && wget -q --no-check-certificate \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/blas.sh \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/blas.tgz \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/lapack.sh \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/lapack.tgz \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/make.inc \
+ENV PATH=/opt/conda/bin:$PATH \
+    LANG=C.UTF-8 \
+    MINICONDA=Miniconda3-latest-Linux-x86_64.sh
+RUN apk add --no-cache libstdc++ && \
+    apk add --no-cache --virtual=build-dependencies bash wget && \
+    wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA \
+        https://github.com/ipython-contrib/IPython-notebook-extensions/archive/master.zip \
+        https://raw.githubusercontent.com/Tsutomu-KKE/scientific-python/master/notebook.json \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
-    sh ./blas.sh && sh ./lapack.sh && \
-    cp ~/src/BLAS/libfblas.a /usr/local/lib && \
-    cp ~/src/lapack-3.5.0/liblapack.a /usr/local/lib && \
-    wget -q --no-check-certificate "https://bootstrap.pypa.io/get-pip.py" -O /dev/stdout | python3 && \
-    pip install numpy==1.9.3 && \
-    pip install scipy matplotlib jupyter networkx pandas pyyaml more_itertools \
-        scikit-learn blist bokeh statsmodels seaborn dask sympy && \
+    bash /Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
+    conda install -y nomkl matplotlib networkx scikit-learn jupyter blist \
+        bokeh statsmodels ncurses seaborn blaze dask flask markdown sympy && \
+    pip install more_itertools pulp pyjade && \
     unzip -q ipaexg00301.zip && \
-    mv ipaexg00301/ipaexg.ttf /usr/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
-    ln -s /usr/bin/python3 /usr/bin/python && \
+    mv /ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
+    unzip -q master.zip && \
+    mkdir -p /root/.local/share/jupyter/ && \
+    mkdir -p /root/.jupyter/nbconfig/ && \
+    mv notebook.json /root/.jupyter/nbconfig/ && \
+    cd IPython-notebook-extensions-master && \
+    python setup.py install && \
+    ln -s /opt/conda/bin/* /usr/local/bin/ && \
     apk del build-dependencies && \
-    rm -rf /var/cache/apk/* /tmp/* /root/src/
+    cd / && rm -rf /root/.[acpw]* /$MINICONDA /IPython-notebook* /master.zip /ipaexg00301* /opt/conda/pkgs/*
 CMD ["sh"]

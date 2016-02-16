@@ -1,22 +1,15 @@
-FROM alpine:3.3
+FROM frolvlad/alpine-glibc
 
-ENV BLAS=/usr/local/lib/libfblas.a \
-    LAPACK=/usr/local/lib/liblapack.a
-RUN apk add --update --no-cache musl python3-dev freetype-dev make g++ gfortran && \
-    apk add --no-cache --virtual=build-dependencies wget && \
-    cd /tmp && wget -q --no-check-certificate \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/blas.sh \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/blas.tgz \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/lapack.sh \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/lapack.tgz \
-        https://raw.githubusercontent.com/catholabs/docker-alpine/master/make.inc && \
-    sh ./blas.sh && sh ./lapack.sh && \
-    cp ~/src/BLAS/libfblas.a /usr/local/lib && \
-    cp ~/src/lapack-3.5.0/liblapack.a /usr/local/lib && \
-    wget -q --no-check-certificate "https://bootstrap.pypa.io/get-pip.py" -O /dev/stdout | python3 && \
-    pip install numpy==1.9.3 && \
-    pip install networkx pandas pyyaml more_itertools && \
-    ln -s /usr/bin/python3 /usr/bin/python && \
+ENV PATH=/opt/conda/bin:$PATH \
+    LANG=C.UTF-8 \
+    MINICONDA=Miniconda3-latest-Linux-x86_64.sh
+RUN apk add --no-cache --virtual=build-dependencies bash wget && \
+    wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA && \
+    bash /Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
+    conda install -y nomkl numpy networkx pandas pyyaml && \
+    pip install more_itertools && \
+    ln -s /opt/conda/bin/* /usr/local/bin/ && \
     apk del build-dependencies && \
-    rm -rf /var/cache/apk/* /tmp/* /root/src/
+    rm -rf /root/.[acpw]* /$MINICONDA /opt/conda/pkgs/*
 CMD ["sh"]
+
