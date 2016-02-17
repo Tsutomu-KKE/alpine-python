@@ -3,7 +3,7 @@ Python3.5 and scientific packages on alpine.  [![](https://badge.imagelayers.io/
 
 - Japanese font installed. (Use "plt.rcParams['font.family'] = 'IPAexGothic'")
 - Jupyter nbextensions installed. (Edit menu - nbextension config)
-- Installed packages
+- Installed packages.
 
 package|ver|package|ver|package|ver|package|ver
 :--|--:|:--|--:|:--|--:|:--|--:
