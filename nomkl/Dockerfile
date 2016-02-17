@@ -11,7 +11,7 @@ RUN apk add --no-cache libstdc++ && \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
     conda install -y nomkl matplotlib networkx scikit-learn jupyter blist \
-        bokeh statsmodels ncurses seaborn blaze dask flask markdown sympy && \
+        bokeh statsmodels ncurses seaborn dask flask markdown sympy && \
     pip install more_itertools pulp pyjade && \
     unzip -q ipaexg00301.zip && \
     mv /ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
