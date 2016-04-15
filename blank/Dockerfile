@@ -5,8 +5,9 @@ ENV PATH=/opt/conda/bin:$PATH \
     MINICONDA=Miniconda3-latest-Linux-x86_64.sh
 RUN apk add --no-cache bash wget && \
     wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA && \
-    bash /Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
+    bash /$MINICONDA -b -p /opt/conda && \
     ln -s /opt/conda/bin/* /usr/local/bin/ && \
+    find /opt -name __pycache__ | xargs rm -r && \
     rm -rf /root/.[acpw]* /$MINICONDA /opt/conda/pkgs/*
 CMD ["bash"]
 

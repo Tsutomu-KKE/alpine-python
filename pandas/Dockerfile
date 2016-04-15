@@ -6,10 +6,13 @@ ENV PATH=/opt/conda/bin:$PATH \
 RUN apk add --no-cache libstdc++ && \
     apk add --no-cache --virtual=build-dependencies bash wget && \
     wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA && \
-    bash /Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
+    bash /$MINICONDA -b -p /opt/conda && \
     conda install -y nomkl numpy networkx pandas pyyaml && \
     pip install more_itertools && \
     ln -s /opt/conda/bin/* /usr/local/bin/ && \
     apk del build-dependencies && \
-    rm -rf /root/.[acpw]* /$MINICONDA /opt/conda/pkgs/*
-CMD ["sh"]
+    find /opt -name __pycache__ | xargs rm -r && \
+    cd / && rm -rf /root/.[acpw]* /$MINICONDA /ipaexg00301* /opt/conda/pkgs/* \
+        /opt/conda/lib/python3.5/site-packages/pulp/solverdir/cbc/[ow]* \
+        /opt/conda/lib/python3.5/site-packages/pulp/solverdir/cbc/linux/32
+CMD ["bash"]
