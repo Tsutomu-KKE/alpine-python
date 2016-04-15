@@ -19,4 +19,4 @@ RUN apk add --no-cache libstdc++ && \
     cd / && rm -rf /root/.[acpw]* /$MINICONDA /ipaexg00301* /opt/conda/pkgs/* \
         /opt/conda/lib/python3.5/site-packages/pulp/solverdir/cbc/[ow]* \
         /opt/conda/lib/python3.5/site-packages/pulp/solverdir/cbc/linux/32
-CMD ["bash"]
+CMD ["sh"]
