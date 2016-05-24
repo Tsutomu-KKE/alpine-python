@@ -4,7 +4,8 @@ ENV PATH=/opt/conda/bin:$PATH \
     LANG=C.UTF-8 \
     MINICONDA=Miniconda3-latest-Linux-x86_64.sh
 RUN apk add --no-cache libstdc++ && \
-    apk add --no-cache --virtual=build-dependencies bash wget && \
+    apk add --no-cache --virtual=build-dependencies bash wget tzdata && \
+    cp /usr/share/zoneinfo/Japan /etc/localtime && \
     wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /$MINICONDA -b -p /opt/conda && \
