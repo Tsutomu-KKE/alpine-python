@@ -1,7 +1,8 @@
-FROM frolvlad/alpine-glibc
+#FROM frolvlad/alpine-glibc
+FROM tsutomu7/alpine-glibc
 
 ENV PATH=/opt/conda/bin:$PATH \
-    LANG=C.UTF-8 \
+    LANG=C \
     MINICONDA=Miniconda3-latest-Linux-x86_64.sh
 RUN apk add --no-cache libstdc++ && \
     apk add --no-cache --virtual=build-dependencies bash wget tzdata && \
@@ -9,8 +10,10 @@ RUN apk add --no-cache libstdc++ && \
     wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /$MINICONDA -b -p /opt/conda && \
+    conda update -y conda && \
     conda install -y nomkl matplotlib networkx scikit-learn jupyter blist \
         bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil && \
+    pip install -U pip && \
     pip install more_itertools pulp pyjade && \
     unzip -q ipaexg00301.zip && \
     mv /ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
