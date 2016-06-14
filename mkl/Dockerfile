@@ -1,5 +1,4 @@
-#FROM frolvlad/alpine-glibc
-FROM tsutomu7/alpine-glibc
+FROM frolvlad/alpine-glibc
 
 ENV PATH=/opt/conda/bin:$PATH \
     LANG=C \

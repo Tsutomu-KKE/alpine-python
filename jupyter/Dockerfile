@@ -1,4 +1,4 @@
-FROM tsutomu7/alpine-python
+FROM frolvlad/alpine-glibc
 
 ENV USER=jupyter
 RUN export uid=1000 gid=1000 pswd=jupyter && \
