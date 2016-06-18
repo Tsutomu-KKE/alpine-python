@@ -9,7 +9,7 @@ RUN apk add --no-cache libstdc++ && \
     wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /$MINICONDA -b -p /opt/conda && \
-    conda update -y conda && \
+    conda update -y conda pip setuptools && \
     conda install -y matplotlib networkx scikit-learn jupyter blist \
         bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil && \
     pip install -U pip && \

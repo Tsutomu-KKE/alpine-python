@@ -8,7 +8,7 @@ RUN apk add --no-cache libstdc++ && \
     cp /usr/share/zoneinfo/Japan /etc/localtime && \
     wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA && \
     bash /$MINICONDA -b -p /opt/conda && \
-    conda update -y conda && \
+    conda update -y conda pip setuptools && \
     conda install -y nomkl numpy networkx pandas pyyaml && \
     pip install -U pip && \
     pip install more_itertools && \
