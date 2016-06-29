@@ -12,7 +12,6 @@ RUN apk add --no-cache libstdc++ && \
     conda update -y conda pip setuptools && \
     conda install -y matplotlib networkx scikit-learn jupyter blist \
         bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil && \
-    pip install -U --no-cache pip && \
     pip install --no-cache more_itertools pulp pyjade && \
     unzip -q ipaexg00301.zip && \
     mv /ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \

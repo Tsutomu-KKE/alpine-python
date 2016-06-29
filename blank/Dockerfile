@@ -8,7 +8,6 @@ RUN apk add --no-cache --virtual=build-dependencies bash wget tzdata && \
     wget -q --no-check-certificate https://repo.continuum.io/miniconda/$MINICONDA && \
     bash /$MINICONDA -b -p /opt/conda && \
     conda update -y conda pip setuptools && \
-    pip install -U --no-cache pip && \
     ln -s /opt/conda/bin/* /usr/local/bin/ && \
     apk del build-dependencies && \
     find /opt -name __pycache__ | xargs rm -r && \
