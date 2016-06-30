@@ -14,7 +14,8 @@ RUN apk add --no-cache libstdc++ && \
         bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil && \
     pip install --no-cache more_itertools pulp pyjade && \
     unzip -q ipaexg00301.zip && \
-    mv /ipaexg00301/ipaexg.ttf /opt/conda/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/ && \
+    mkdir -p /usr/share/fonts/ && \
+    mv /ipaexg00301/ipaexg.ttf /usr/share/fonts/ && \
     ln -s /opt/conda/bin/* /usr/local/bin/ && \
     apk del build-dependencies && \
     find /opt -name __pycache__ | xargs rm -r && \
