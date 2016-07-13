@@ -10,7 +10,7 @@ RUN apk add --no-cache libstdc++ && \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /$MINICONDA -b -p /opt/conda && \
     conda update -y conda pip setuptools && \
-    conda install -y matplotlib networkx scikit-learn jupyter blist \
+    conda install -y matplotlib networkx scikit-learn jupyter blist anaconda-client \
         bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil && \
     pip install --no-cache more_itertools pulp pyjade && \
     unzip -q ipaexg00301.zip && \
