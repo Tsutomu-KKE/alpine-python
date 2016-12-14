@@ -2,7 +2,7 @@ Python3.5 and scientific packages on alpine.  [![](https://badge.imagelayers.io/
 ========
 
 - Japanese font installed. (Use "plt.rcParams['font.family'] = 'IPAexGothic'")
-- 115 packages are installed.
+- 116 packages are installed.
 
 package|ver|package|ver|package|ver
 :--|:--|:--|:--|:--|:--
@@ -36,12 +36,12 @@ pygments|2.1.3|pyjade|4.0.0|pyparsing|2.1.4
 pyqt|5.6.0|**python**|**3.5.2**|python_dateutil|2.6.0
 pytz|2016.10|pyyaml|3.12|pyzmq|16.0.2
 qt|5.6.2|qtconsole|4.2.1|readline|6.2
-requests|2.11.1|ruamel_yaml|0.11.14|scikit_learn|0.18.1
-**scipy**|**0.18.1**|seaborn|0.7.1|setuptools|27.2.0
-simplegeneric|0.8.1|sip|4.18|six|1.10.0
-sqlite|3.13.0|statsmodels|0.6.1|**sympy**|**1.0**
-terminado|0.6|tk|8.5.18|toolz|0.8.2
-tornado|4.4.2|traitlets|4.3.1|wcwidth|0.1.7
-werkzeug|0.11.11|wheel|0.29.0|widgetsnbextension|1.2.6
-xz|5.2.2|yaml|0.1.6|zeromq|4.1.5
-zlib|1.2.8|
+redis|3.2.0|requests|2.11.1|ruamel_yaml|0.11.14
+scikit_learn|0.18.1|**scipy**|**0.18.1**|seaborn|0.7.1
+setuptools|27.2.0|simplegeneric|0.8.1|sip|4.18
+six|1.10.0|sqlite|3.13.0|statsmodels|0.6.1
+**sympy**|**1.0**|terminado|0.6|tk|8.5.18
+toolz|0.8.2|tornado|4.4.2|traitlets|4.3.1
+wcwidth|0.1.7|werkzeug|0.11.11|wheel|0.29.0
+widgetsnbextension|1.2.6|xz|5.2.2|yaml|0.1.6
+zeromq|4.1.5|zlib|1.2.8|

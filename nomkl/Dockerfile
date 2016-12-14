@@ -11,8 +11,8 @@ RUN apk add --no-cache libstdc++ && \
     bash /$MINICONDA -b -p /opt/conda && \
     conda update -y conda pip setuptools && \
     conda install -y nomkl matplotlib networkx scikit-learn jupyter blist anaconda-client \
-        bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil && \
-    pip install --no-cache more_itertools pulp pyjade && \
+        bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil redis && \
+    pip install --no-cache more_itertools pulp pyjade redis && \
     unzip -q ipaexg00301.zip && \
     mkdir -p /usr/share/fonts/ && \
     mv /ipaexg00301/ipaexg.ttf /usr/share/fonts/ && \
