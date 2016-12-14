@@ -10,9 +10,11 @@ RUN apk add --no-cache libstdc++ && \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /$MINICONDA -b -p /opt/conda && \
     conda update -y conda pip setuptools && \
-    conda install -y nomkl matplotlib networkx scikit-learn jupyter blist anaconda-client \
-        bokeh statsmodels ncurses seaborn dask flask markdown sympy psutil redis && \
-    pip install --no-cache more_itertools pulp pyjade redis && \
+    conda install -y nomkl networkx scikit-learn jupyter blist numexpr blaze \
+            statsmodels ncurses seaborn dask flask markdown sympy psutil \
+            more-itertools redis-py && \
+    conda update -y --all && \
+    pip install --no-cache pulp pyjade && \
     unzip -q ipaexg00301.zip && \
     mkdir -p /usr/share/fonts/ && \
     mv /ipaexg00301/ipaexg.ttf /usr/share/fonts/ && \
