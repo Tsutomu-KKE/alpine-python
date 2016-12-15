@@ -1,1 +1,1 @@
-c.NotebookApp.password = 'sha1:d0a15ccc2f23:93950b2064c590a67c44fe61aa897a097f376c29'
+c.NotebookApp.token = 'jupyter'

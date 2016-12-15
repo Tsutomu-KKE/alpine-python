@@ -3,7 +3,7 @@ FROM frolvlad/alpine-glibc
 ENV PATH=/opt/conda/bin:$PATH \
     LANG=C.UTF-8 \
     MINICONDA=Miniconda3-latest-Linux-x86_64.sh
-ADD jupyter_notebook_config.py $HOME/.jupyter/
+ADD jupyter_notebook_config.py /root/.jupyter/
 RUN apk add --no-cache libstdc++ && \
     apk add --no-cache --virtual=build-dependencies bash wget tzdata && \
     cp /usr/share/zoneinfo/Japan /etc/localtime && \
