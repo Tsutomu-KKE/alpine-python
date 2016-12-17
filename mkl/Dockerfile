@@ -13,7 +13,7 @@ RUN apk add --no-cache libstdc++ && \
     conda update -y conda pip setuptools && \
     conda install -y networkx scikit-learn jupyter blist numexpr blaze \
             statsmodels ncurses seaborn dask flask markdown sympy psutil \
-            more-itertools redis-py && \
+            more-itertools redis-py gunicorn && \
     conda update -y --all && \
     pip install --no-cache pulp pyjade && \
     unzip -q ipaexg00301.zip && \
