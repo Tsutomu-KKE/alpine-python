@@ -11,7 +11,7 @@ RUN apk add --no-cache libstdc++ && \
         http://dl.ipafont.ipa.go.jp/IPAexfont/ipaexg00301.zip && \
     bash /$MINICONDA -b -p /opt/conda && \
     conda update -y conda pip setuptools && \
-    conda install -y nomkl networkx scikit-learn jupyter blist numexpr blaze \
+    conda install -y nomkl qt=4 networkx scikit-learn jupyter blist numexpr blaze \
             statsmodels ncurses seaborn dask flask markdown sympy psutil \
             more-itertools redis-py gunicorn && \
     conda update -y --all && \
