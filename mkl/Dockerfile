@@ -14,7 +14,7 @@ RUN apk add --no-cache libstdc++ && \
     conda install -y networkx scikit-learn jupyter blist numexpr blaze \
             statsmodels ncurses seaborn dask flask markdown sympy psutil \
             more-itertools redis-py gunicorn coverage && \
-    pip install --no-cache pulp pyjade pypdf2 && \
+    pip install --no-cache pulp pyjade pypdf2 ortoolpy && \
     unzip -q ipaexg00301.zip && \
     mkdir -p /usr/share/fonts/ && \
     mv /ipaexg00301/ipaexg.ttf /usr/share/fonts/ && \
