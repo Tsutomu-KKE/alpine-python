@@ -22,6 +22,6 @@ RUN apk add --no-cache libstdc++ && \
     apk del build-dependencies && \
     find /opt -name __pycache__ | xargs rm -r && \
     cd / && rm -rf /root/.[apw]* /$MINICONDA /ipaexg00301* /opt/conda/pkgs/* \
-        /opt/conda/lib/python3.5/site-packages/pulp/solverdir/cbc/[ow]* \
-        /opt/conda/lib/python3.5/site-packages/pulp/solverdir/cbc/linux/32
+        /opt/conda/lib/python3.6/site-packages/pulp/solverdir/cbc/[ow]* \
+        /opt/conda/lib/python3.6/site-packages/pulp/solverdir/cbc/linux/32
 CMD ["sh"]
