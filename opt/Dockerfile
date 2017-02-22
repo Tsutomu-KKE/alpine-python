@@ -1,4 +1,4 @@
-FROM tsutomu7/alpine-python
+FROM tsutomu7/alpine-python:2017_01
 
 RUN conda install -y --channel https://conda.anaconda.org/cachemeorg funcdesigner openopt && \
     pip install --no-cache openopt mypulp myopenopt && \
